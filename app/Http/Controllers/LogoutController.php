@@ -8,7 +8,7 @@ class LogoutController extends Controller
 {
     public function index(Request $req)
     {
-        $req->session()->flush();
+        $req->session()->flush('msg','Successfully Logout');
         return redirect('/login');
     }
 }
