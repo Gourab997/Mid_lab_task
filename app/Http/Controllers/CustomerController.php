@@ -32,10 +32,14 @@ public function store(UserRequest $req){
 
    $user = new User();
    $user->username = $req->username;
-   $user->name     = $req->name;
+   $user->fullname     = $req->fullname;
    $user->password = $req->password;
    $user->email    = $req->email;
-   $user->type     = $req->type;
+   $user->address  = $req->addess;
+   $user->phone = $req->phone;
+   $user->city = $req->city;
+   $user->country = $req->country;
+
 
    $user->save();
     return redirect('/home/userlist');

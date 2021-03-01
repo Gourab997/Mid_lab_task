@@ -24,8 +24,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required | min:5 | unique:users|bail',
-            'password' => 'required | max:8'
+            'username' => 'required | unique:users |bail',
+            'password' => 'required | min:8 | max:20 |alpha_num',
+            'fullname' => 'required | min:3 | max:30 |alpha',
+            'email'    => 'required | min:10 | max:50 |email',
+            'city'     => 'required | min:3 | max:20',
+            'phone'    => 'required | min:11 | max:15' 
         ];
     }
 
