@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Http\Requests\LoginRequest;
 
 
 
@@ -15,18 +16,15 @@ return view('login.index');
 
     }
 
-  public  function verify(Request $req){
+  public  function verify(LoginRequest $req){
 
-     /* $user =User::where('password', $req->password)
-                 ->where('username',$req->username)
-              ->get(); */ 
-     // return view('login.test');
+
 
      $user = DB::table('users') 
      -> where('password', $req->password)
-     ->where('username',$req->username)
+     ->where('email',$req->email)
      ->get();
-       if($req->username == "" || $req->password == ""){
+       if($req->email == "" || $req->email == ""){
           $req->session()->flash('msg','Invalid');
           return redirect('/login');
        }elseif(count($user) > 0 ){
@@ -34,8 +32,8 @@ return view('login.index');
      
     if ($req->usertype == "admin"){
 
-     $req->session()->put('username',$req->username);
-     return redirect('/home');
+     $req->session()->put('email',$req->email);
+     return redirect('/admin');
     }elseif($req->usertype == "accountant"){
 
       $req->session()->put('username',$req->username);

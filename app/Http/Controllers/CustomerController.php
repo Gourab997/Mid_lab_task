@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index(Request $req){
 
    if($req->session()->has('username')){
-    return view('home.index' );
+    return view('customer.index' );
    }else{
        $req->session()->flash('msg','invalid request');
        return redirect('/login');
@@ -23,7 +23,7 @@ class HomeController extends Controller
     }
 
     public function create(){
-        return view('home.create');
+        return view('customer.create');
     }
 
 
@@ -42,7 +42,7 @@ public function store(UserRequest $req){
 
 
    $user->save();
-    return redirect('/home/userlist');
+    return redirect('/customer/userlist');
    
 }
 
@@ -51,7 +51,7 @@ public function edit($id,Request $req){
 $user =User::find($id);
 
 
-    return view('home.edit')->with('user',$user);
+    return view('customer.edit')->with('user',$user);
 }
 
 
@@ -59,7 +59,7 @@ $user =User::find($id);
 public function show($id){
   
     $user =User::find($id);
-    return view('home.details')->with('user', $user);
+    return view('customer.details')->with('user', $user);
 }
 
 
@@ -80,14 +80,14 @@ public function update($id,Request $req){
     $user->type     = $req->type;
     $user->save();
     
-    return redirect('/home/userlist');
+    return redirect('/customer/userlist');
 
 }
 public function userlist(){
 
     $userlist = User::all();
     //$userlist =$this->getUserlist();
-    return view('home.list')->with('userlist',$userlist);
+    return view('customer.list')->with('userlist',$userlist);
 }
 
 
@@ -95,15 +95,15 @@ public function userlist(){
     public function delete($id){
         $user = User::find($id);
 
-        return view('home.delete')->with('user',$user);
+        return view('customer.delete')->with('user',$user);
     }
 
     public function destroy($id){
 
         if(User::destroy($id)){
-            return redirect('/home/userlist');
+            return redirect('/customer/userlist');
         } else{
-            return redirect('home/delete/'.$id);
+            return redirect('customer/delete/'.$id);
         }
     }
 

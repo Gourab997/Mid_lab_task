@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -25,24 +26,29 @@ Route::get("login",[LoginController::class,'index']);
 
 Route::group(['middleware'=>'sess'],function () {
  
-Route::get("home",[CustomerController::class,'index']);
+Route::get("customer",[CustomerController::class,'index']);
 
     
-Route::get("home",[CustomerController::class,'index']);
-Route::get("home/userlist",[CustomerController::class,'userlist'])->name('home.userlist');
+Route::get("customer",[CustomerController::class,'index']);
+Route::get("customer/userlist",[CustomerController::class,'userlist'])->name('customer.userlist');
 
-Route::get("home/create",[CustomerController::class,'create'])->name('home.create');
-Route::post("home/create",[CustomerController::class,'store']);
+Route::get("customer/create",[CustomerController::class,'create'])->name('customer.create');
+Route::post("customer/create",[CustomerController::class,'store']);
 
-Route::get("home/edit/{id}",[CustomerController::class,'edit'])->middleware('sess')->name('home.edit');
-Route::post("home/edit/{id}",[CustomerController::class,'update']);
+Route::get("customer/edit/{id}",[CustomerController::class,'edit'])->middleware('sess')->name('customer.edit');
+Route::post("customer/edit/{id}",[CustomerController::class,'update']);
 
 
-Route::get("home/delete/{id}",[CustomerController::class,'delete'])->name('home.delete');
-Route::post("home/delete/{id}",[CustomerController::class,'destroy']);
-Route::get("home/details/{id}",[CustomerController::class,'show']);
+Route::get("customer/delete/{id}",[CustomerController::class,'delete'])->name('customer.delete');
+Route::post("customer/delete/{id}",[CustomerController::class,'destroy']);
+Route::get("customer/details/{id}",[CustomerController::class,'show']);
 
 Route::get("logout",[LogoutController::class,'index']);
 });
+
+Route::get("admin",[AdminController::class,'index']);
+Route::post("admin", [AdminController::class,'verify']);
+
+
 
 
