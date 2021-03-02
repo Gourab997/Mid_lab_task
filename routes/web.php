@@ -57,7 +57,7 @@ Route::get("system/sales/physical_store/sales_log",[SalesController::class,'sale
 Route::get("system/sales/social_media",[SalesController::class,'social_media']);
 Route::get("system/sales/ecommerce",[SalesController::class,'ecommerce']);
 Route::get("pdf",[DynamicPDFController::class,'index']);
-
+Route::get("pdf",[DynamicPDFController::class,'pdf']);
 });
 
 
