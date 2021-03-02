@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -44,10 +45,19 @@ Route::post("customer/delete/{id}",[CustomerController::class,'destroy']);
 Route::get("customer/details/{id}",[CustomerController::class,'show']);
 
 Route::get("logout",[LogoutController::class,'index']);
-});
 
 Route::get("admin",[AdminController::class,'index']);
 Route::post("admin", [AdminController::class,'verify']);
+
+Route::get("sales",[SalesController::class,'index']);
+Route::post("sales", [SalesController::class,'verify']);
+Route::get("system/sales/physical_store",[SalesController::class,'physical_store']);
+Route::get("system/sales/physical_store/sales_log",[SalesController::class,'sales_log']);
+Route::get("system/sales/social_media",[SalesController::class,'social_media']);
+Route::get("system/sales/ecommerce",[SalesController::class,'ecommerce']);
+
+});
+
 
 
 
