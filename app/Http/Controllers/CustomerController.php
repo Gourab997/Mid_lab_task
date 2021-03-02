@@ -51,7 +51,7 @@ public function edit($id,Request $req){
 $user =User::find($id);
 
 
-    return view('customer.edit')->with('user',$user);
+    return view('customer.edit')->with('Payment Type',$user);
 }
 
 

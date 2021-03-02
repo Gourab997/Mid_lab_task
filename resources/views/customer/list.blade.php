@@ -31,9 +31,9 @@
         <td>{{ $userlist[$i]['password'] }}</td>
         <td>{{ $userlist[$i]['type'] }}</td>
         <td>
-            <a href="{{ route('home.edit',[$userlist[$i]['u_id']]) }}"> Edit</a>
-            <a href="/home/delete/{{ $userlist[$i]['u_id'] }}"> Delete</a>
-            <a href="/home/details/{{ $userlist[$i]['u_id'] }}"> Details</a>
+            <a href="{{ route('customer.edit',[$userlist[$i]['u_id']]) }}"> Edit</a>
+            <a href="/customer/delete/{{ $userlist[$i]['u_id'] }}"> Delete</a>
+            <a href="/customer/details/{{ $userlist[$i]['u_id'] }}"> Details</a>
         </td>
     </tr>
     @endfor

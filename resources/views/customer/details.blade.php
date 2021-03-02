@@ -11,29 +11,40 @@
         @csrf
             <fieldset>
                 <legend>User list</legend>
-                <a href="/home/userlist"> Back </a>
+                <a href="/customer/userlist"> Back </a>
                 <table>
                     <tr>
-                        <td>UserName:</td>
+                        <td>fullname:</td>
+                        <td>{{ $user['fullname'] }}</td>
+                    </tr>
+                    <tr>
+                        <td>username:</td>
                         <td>{{ $user['username'] }}</td>
                     </tr>
                     <tr>
-                        <td>Name:</td>
-                        <td>{{ $user['name'] }}</td>
+                        <td>phone :</td>
+                        <td>{{ $user['phone'] }}</td>
                     </tr>
                     <tr>
-                        <td>Password :</td>
+                        <td>password :</td>
                         <td>{{ $user['password'] }}</td>
                     </tr>
                     <tr>
-                        <td>Email :</td>
+                        <td >email:</td>
                         <td>{{ $user['email'] }}</td>
                     </tr>
                     <tr>
-                        <td >Type:</td>
-                        <td>{{ $user['type'] }}</td>
+                        <td >Company Nam:</td>
+                        <td>{{ $user['cname'] }}</td>
                     </tr>
-                    
+                    <tr>
+                        <td >City:</td>
+                        <td>{{ $user['city'] }}</td>
+                    </tr>
+                    <tr>
+                        <td >country:</td>
+                        <td>{{ $user['country'] }}</td>
+                    </tr>
                 </table>
             </fieldset>
         

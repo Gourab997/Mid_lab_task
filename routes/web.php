@@ -6,6 +6,7 @@ use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\DynamicPDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,7 @@ Route::get("system/sales/physical_store",[SalesController::class,'physical_store
 Route::get("system/sales/physical_store/sales_log",[SalesController::class,'sales_log']);
 Route::get("system/sales/social_media",[SalesController::class,'social_media']);
 Route::get("system/sales/ecommerce",[SalesController::class,'ecommerce']);
+Route::get("pdf",[DynamicPDFController::class,'index']);
 
 });
 
